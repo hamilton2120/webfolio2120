@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyro Electronics NJ | Top-Rated eBay Electronics Refurbisher & Reseller</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0F17',
+                            card: '#111827',
+                            border: '#1F293D',
+                            orange: '#FF5722',
+                            amber: '#F59E0B',
+                            cyan: '#06B6D4',
+                            ebayBlue: '#0064D2',
+                            ebayYellow: '#FFAC00',
+                            glow: 'rgba(255, 87, 34, 0.15)',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Glowing & Grid FX */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F17;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1F293D;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF5722;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased bg-grid-pattern selection:bg-brand-orange selection:text-white">
+
+    <!-- Sticky Header / Navigation Bar -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-40 transition-all duration-300 bg-brand-dark/95 backdrop-blur-md border-b border-brand-border/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-brand-orange to-brand-amber flex items-center justify-center text-white shadow-lg shadow-brand-orange/30 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-fire-flame-curved text-xl font-bold"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-xl tracking-tight text-white flex items-center gap-1">
+                            PYRO <span class="text-brand-orange font-extrabold">ELECTRONICS</span>
+                        </span>
+                        <span class="text-[10px] font-mono tracking-widest text-brand-cyan uppercase -mt-1">NJ • eBay Top-Rated Refurbisher</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-7 text-sm font-medium">
+                    <a href="#storefront" class="text-slate-300 hover:text-brand-orange transition-colors">eBay Store</a>
+                    <a href="#process" class="text-slate-300 hover:text-brand-orange transition-colors">QA Process</a>
+                    <a href="#sourcing" class="text-slate-300 hover:text-brand-orange transition-colors">Bulk Sourcing & ITAD</a>
+                    <a href="#reviews" class="text-slate-300 hover:text-brand-orange transition-colors">Feedback</a>
+                    <a href="#contact" class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand-orange to-brand-amber text-white font-semibold shadow-lg shadow-brand-orange/25 hover:shadow-brand-orange/40 hover:opacity-95 transition-all flex items-center gap-2">
+                        <i class="fa-brands fa-ebay text-lg"></i>
+                        <span>Contact Store</span>
+                    </a>
+                </nav>
+
+                <!-- Mobile Navigation Button -->
+                <button id="mobile-menu-btn" type="button" class="md:hidden p-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-brand-card focus:outline-none" aria-label="Toggle Navigation">
+                    <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-card/95 backdrop-blur-lg border-b border-brand-border px-4 pt-2 pb-6 space-y-3">
+            <a href="#storefront" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-brand-border/50">eBay Storefront</a>
+            <a href="#process" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-brand-border/50">QA & Testing</a>
+            <a href="#sourcing" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-brand-border/50">Bulk Sourcing & ITAD</a>
+            <a href="#reviews" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-brand-border/50">Customer Reviews</a>
+            <a href="#contact" class="mobile-link block w-full text-center px-4 py-3 rounded-lg bg-brand-orange text-white font-semibold mt-4 shadow-lg shadow-brand-orange/30">
+                Contact & Trade-Ins
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="pt-20">
+
+        <!-- HERO SECTION -->
+        <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-16 px-4 sm:px-6 lg:px-8">
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-brand-orange/10 rounded-full blur-[130px] pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-[350px] h-[350px] bg-brand-cyan/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto text-center relative z-10">
+                
+                <!-- Trust Badge Banner -->
+                <div class="inline-flex flex-wrap items-center justify-center gap-3 px-4 py-2 rounded-full bg-brand-card border border-brand-border text-xs font-mono text-slate-300 mb-8 shadow-inner">
+                    <span class="flex items-center text-brand-amber font-semibold"><i class="fa-solid fa-star mr-1.5"></i> TOP RATED EBAY SELLER</span>
+                    <span class="hidden sm:inline text-slate-600">•</span>
+                    <span class="flex items-center text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check mr-1.5"></i> 100% TESTED & SANITIZED</span>
+                    <span class="hidden sm:inline text-slate-600">•</span>
+                    <span class="flex items-center text-brand-cyan font-semibold"><i class="fa-solid fa-truck-fast mr-1.5"></i> FAST NJ DISPATCH</span>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight max-w-5xl mx-auto">
+                    Precision Refurbished Tech, <span class="bg-gradient-to-r from-brand-orange via-brand-amber to-amber-300 bg-clip-text text-transparent">Direct from New Jersey.</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                    Pyro Electronics NJ delivers thoroughly stress-tested workstation PCs, business laptops, enterprise server gear, retro computing, and certified components—backed by fast shipping and a 30-day guarantee.
+                </p>
+
+                <!-- Hero Action Buttons -->
+                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                    <a href="#storefront" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-orange to-brand-amber text-white font-bold text-lg shadow-xl shadow-brand-orange/25 hover:shadow-brand-orange/40 hover:-translate-y-0.5 transition-all text-center flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-store"></i>
+                        <span>Browse Store Inventory</span>
+                    </a>
+                    <a href="#sourcing" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-card border border-brand-border text-slate-200 font-semibold text-lg hover:border-brand-cyan hover:text-brand-cyan transition-all text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-handshake"></i>
+                        <span>Sell Equipment / ITAD Bulk</span>
+                    </a>
+                </div>
+
+                <!-- Live eBay Trust Stats Bar -->
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto">
+                    <div class="bg-brand-card/70 backdrop-blur p-4 rounded-xl border border-brand-border text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-brand-amber font-mono">99.8%</div>
+                        <div class="text-xs text-slate-400 mt-1 uppercase font-medium">Positive eBay Feedback</div>
+                    </div>
+                    <div class="bg-brand-card/70 backdrop-blur p-4 rounded-xl border border-brand-border text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-brand-orange font-mono">15,000+</div>
+                        <div class="text-xs text-slate-400 mt-1 uppercase font-medium">Orders Shipped</div>
+                    </div>
+                    <div class="bg-brand-card/70 backdrop-blur p-4 rounded-xl border border-brand-border text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-brand-cyan font-mono">30-Day</div>
+                        <div class="text-xs text-slate-400 mt-1 uppercase font-medium">Hassle-Free Returns</div>
+                    </div>
+                    <div class="bg-brand-card/70 backdrop-blur p-4 rounded-xl border border-brand-border text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">1 Business Day</div>
+                        <div class="text-xs text-slate-400 mt-1 uppercase font-medium">Handling Time</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- STOREFRONT & INVENTORY SHOWCASE -->
+        <section id="storefront" class="py-20 border-t border-brand-border/60 bg-brand-card/20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-6">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-orange/10 text-brand-orange font-mono text-xs font-semibold mb-3">
+                            FEATURED EBAY LISTINGS
+                        </div>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Live Inventory & Showcase</h2>
+                        <p class="text-slate-400 mt-2">Filter and inspect our current stock of restored computers, enterprise components, and specialized tech.</p>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="w-full lg:w-80 relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+                        <input type="text" id="inventory-search" placeholder="Search CPU, SFF, ThinkPad, DDR4..." class="w-full pl-10 pr-4 py-2.5 bg-brand-dark border border-brand-border rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-orange transition-colors">
+                    </div>
+                </div>
+
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap gap-2 mb-8" id="category-filters">
+                    <button data-filter="all" class="filter-btn active px-4 py-2 rounded-lg bg-brand-orange text-white text-xs font-semibold shadow transition-all">All Items</button>
+                    <button data-filter="desktops" class="filter-btn px-4 py-2 rounded-lg bg-brand-card border border-brand-border text-slate-300 hover:text-white text-xs font-semibold transition-all">SFF & Desktop PCs</button>
+                    <button data-filter="laptops" class="filter-btn px-4 py-2 rounded-lg bg-brand-card border border-brand-border text-slate-300 hover:text-white text-xs font-semibold transition-all">Laptops & Mobile Tech</button>
+                    <button data-filter="enterprise" class="filter-btn px-4 py-2 rounded-lg bg-brand-card border border-brand-border text-slate-300 hover:text-white text-xs font-semibold transition-all">Servers & Enterprise</button>
+                    <button data-filter="components" class="filter-btn px-4 py-2 rounded-lg bg-brand-card border border-brand-border text-slate-300 hover:text-white text-xs font-semibold transition-all">Components & RAM</button>
+                    <button data-filter="retro" class="filter-btn px-4 py-2 rounded-lg bg-brand-card border border-brand-border text-slate-300 hover:text-white text-xs font-semibold transition-all">Vintage & Specialty</button>
+                </div>
+
+                <!-- Item Count Counter -->
+                <div class="mb-6 text-xs font-mono text-slate-400 flex items-center justify-between">
+                    <span>Showing <strong id="visible-count" class="text-brand-cyan">6</strong> verified active listing examples</span>
+                    <span class="text-slate-500"><i class="fa-solid fa-rotate text-xs mr-1"></i> Inventory updated daily</span>
+                </div>
+
+                <!-- Inventory Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="inventory-grid">
+                    
+                    <!-- Item 1 -->
+                    <div class="inventory-card desktops rounded-2xl bg-brand-card border border-brand-border p-6 hover:border-brand-orange/60 transition-all flex flex-col justify-between group" data-title="Dell OptiPlex 7070 SFF Core i7 16GB RAM 512GB NVMe Win11">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-2.5 py-1 rounded-md bg-brand-orange/10 text-brand-orange font-mono text-[11px] font-semibold">Grade A Refurbished</span>
+                                <span class="text-xs font-mono text-emerald-400 font-bold">$189.99</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-orange transition-colors mb-2">Dell OptiPlex 7070 SFF</h3>
+                            <p class="text-xs text-slate-400 mb-4 line-clamp-2">Intel Core i7-9700 8-Core, 16GB DDR4 RAM, 512GB NVMe SSD, WiFi + Bluetooth, Windows 11 Pro activated. Thermal paste repasted.</p>
+                            
+                            <div class="space-y-1.5 text-xs text-slate-300 font-mono mb-6 bg-brand-dark/60 p-3 rounded-lg border border-brand-border">
+                                <div><span class="text-slate-500">CPU:</span> i7-9700 @ 3.00GHz</div>
+                                <div><span class="text-slate-500">RAM:</span> 16GB DDR4 (Dual Channel)</div>
+                                <div><span class="text-slate-500">Storage:</span> 512GB M.2 NVMe SSD</div>
+                                <div><span class="text-slate-500">Condition:</span> Cleaned & Stress-Tested</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-brand-border flex items-center gap-2">
+                            <button onclick="openModal('dell-7070')" class="flex-1 py-2.5 rounded-lg bg-brand-dark border border-brand-border hover:border-slate-500 text-xs font-semibold text-slate-200 hover:text-white transition-all text-center">
+                                View Full Specs
+                            </button>
+                            <a href="https://www.ebay.com" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-lg bg-gradient-to-r from-brand-orange to-brand-amber text-white text-xs font-bold hover:opacity-90 transition-opacity flex items-center gap-1.5">
+                                <span>eBay</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="inventory-card laptops rounded-2xl bg-brand-card border border-brand-border p-6 hover:border-brand-cyan/60 transition-all flex flex-col justify-between group" data-title="Lenovo ThinkPad T480s 14 FHD i5 16GB 256GB SSD Windows 11 Pro">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-2.5 py-1 rounded-md bg-brand-cyan/10 text-brand-cyan font-mono text-[11px] font-semibold">Grade A- Laptop</span>
+                                <span class="text-xs font-mono text-emerald-400 font-bold">$164.50</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-cyan transition-colors mb-2">Lenovo ThinkPad T480s 14"</h3>
+                            <p class="text-xs text-slate-400 mb-4 line-clamp-2">Intel Quad-Core i5-8350U, 16GB DDR4, 256GB SSD, 1080p IPS screen, tested dual batteries (85%+ health capacity remaining).</p>
+                            
+                            <div class="space-y-1.5 text-xs text-slate-300 font-mono mb-6 bg-brand-dark/60 p-3 rounded-lg border border-brand-border">
+                                <div><span class="text-slate-500">Screen:</span> 14" FHD IPS Non-Touch</div>
+                                <div><span class="text-slate-500">CPU:</span> Intel i5-8350U</div>
+                                <div><span class="text-slate-500">Battery:</span> Passed Capacity Health Check</div>
+                                <div><span class="text-slate-500">Includes:</span> Original USB-C Charger</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-brand-border flex items-center gap-2">
+                            <button onclick="openModal('thinkpad-t480s')" class="flex-1 py-2.5 rounded-lg bg-brand-dark border border-brand-border hover:border-slate-500 text-xs font-semibold text-slate-200 hover:text-white transition-all text-center">
+                                View Full Specs
+                            </button>
+                            <a href="https://www.ebay.com" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-lg bg-gradient-to-r from-brand-cyan to-blue-500 text-white text-xs font-bold hover:opacity-90 transition-opacity flex items-center gap-1.5">
+                                <span>eBay</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="inventory-card enterprise rounded-2xl bg-brand-card border border-brand-border p-6 hover:border-brand-amber/60 transition-all flex flex-col justify-between group" data-title="HP ProLiant DL380 Gen10 Server Dual Xeon 256GB ECC RAM No Storage">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-2.5 py-1 rounded-md bg-brand-amber/10 text-brand-amber font-mono text-[11px] font-semibold">Tested Enterprise</span>
+                                <span class="text-xs font-mono text-emerald-400 font-bold">$749.00</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-amber transition-colors mb-2">HP ProLiant DL380 Gen10 2U</h3>
+                            <p class="text-xs text-slate-400 mb-4 line-clamp-2">Dual Intel Xeon Silver 4110, 256GB DDR4 ECC Registered RAM, Smart Array P408i-a RAID, Dual 800W PSU, 8x SFF Bays.</p>
+                            
+                            <div class="space-y-1.5 text-xs text-slate-300 font-mono mb-6 bg-brand-dark/60 p-3 rounded-lg border border-brand-border">
+                                <div><span class="text-slate-500">Processors:</span> 2x Xeon Silver 4110</div>
+                                <div><span class="text-slate-500">RAM:</span> 256GB (8x32GB) DDR4 ECC</div>
+                                <div><span class="text-slate-500">iLO:</span> Advanced License Unlocked</div>
+                                <div><span class="text-slate-500">Power:</span> Redundant 800W Titanium</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-brand-border flex items-center gap-2">
+                            <button onclick="openModal('hp-dl380')" class="flex-1 py-2.5 rounded-lg bg-brand-dark border border-brand-border hover:border-slate-500 text-xs font-semibold text-slate-200 hover:text-white transition-all text-center">
+                                View Full Specs
+                            </button>
+                            <a href="https://www.ebay.com" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-lg bg-gradient-to-r from-brand-amber to-orange-500 text-white text-xs font-bold hover:opacity-90 transition-opacity flex items-center gap-1.5">
+                                <span>eBay</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="inventory-card components rounded-2xl bg-brand-card border border-brand-border p-6 hover:border-emerald-500/60 transition-all flex flex-col justify-between group" data-title="SK Hynix 64GB 2Rx4 DDR4-3200MHz ECC RDIMM Server RAM Module">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 font-mono text-[11px] font-semibold">MemTest Passed</span>
+                                <span class="text-xs font-mono text-emerald-400 font-bold">$68.00 /ea</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors mb-2">64GB DDR4-3200 ECC RDIMM</h3>
+                            <p class="text-xs text-slate-400 mb-4 line-clamp-2">SK Hynix PC4-25600 Registered ECC Memory for enterprise servers and workstations. 100% verified with MemTest86.</p>
+                            
+                            <div class="space-y-1.5 text-xs text-slate-300 font-mono mb-6 bg-brand-dark/60 p-3 rounded-lg border border-brand-border">
+                                <div><span class="text-slate-500">Capacity:</span> 64GB Single Stick</div>
+                                <div><span class="text-slate-500">Speed:</span> DDR4 3200MHz (PC4-25600R)</div>
+                                <div><span class="text-slate-500">Rank:</span> 2Rx4 Registered</div>
+                                <div><span class="text-slate-500">Testing:</span> Zero Errors on 4-Pass Test</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-brand-border flex items-center gap-2">
+                            <button onclick="openModal('ram-64gb')" class="flex-1 py-2.5 rounded-lg bg-brand-dark border border-brand-border hover:border-slate-500 text-xs font-semibold text-slate-200 hover:text-white transition-all text-center">
+                                View Full Specs
+                            </button>
+                            <a href="https://www.ebay.com" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-lg bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-500 transition-colors flex items-center gap-1.5">
+                                <span>eBay</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="inventory-card retro rounded-2xl bg-brand-card border border-brand-border p-6 hover:border-purple-500/60 transition-all flex flex-col justify-between group" data-title="Retro IBM ThinkPad T42 Pentium M Windows XP Retro Gaming Laptop">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-400 font-mono text-[11px] font-semibold">Vintage Restored</span>
+                                <span class="text-xs font-mono text-emerald-400 font-bold">$145.00</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors mb-2">IBM ThinkPad T42 Vintage XP</h3>
+                            <p class="text-xs text-slate-400 mb-4 line-clamp-2">Pentium M 1.7GHz, 2GB RAM, ATI Mobility Radeon 9600 GPU, Windows XP SP3 installed. Fully recapped and refurbished for retro gaming.</p>
+                            
+                            <div class="space-y-1.5 text-xs text-slate-300 font-mono mb-6 bg-brand-dark/60 p-3 rounded-lg border border-brand-border">
+                                <div><span class="text-slate-500">OS:</span> Windows XP SP3 Active</div>
+                                <div><span class="text-slate-500">GPU:</span> ATI Radeon Mobility 9600</div>
+                                <div><span class="text-slate-500">Drive:</span> 80GB IDE Hard Drive</div>
+                                <div><span class="text-slate-500">Ports:</span> Native Serial, Parallel, VGA</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-brand-border flex items-center gap-2">
+                            <button onclick="openModal('ibm-t42')" class="flex-1 py-2.5 rounded-lg bg-brand-dark border border-brand-border hover:border-slate-500 text-xs font-semibold text-slate-200 hover:text-white transition-all text-center">
+                                View Full Specs
+                            </button>
+                            <a href="https://www.ebay.com" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-lg bg-purple-600 text-white text-xs font-bold hover:bg-purple-500 transition-colors flex items-center gap-1.5">
+                                <span>eBay</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="inventory-card desktops rounded-2xl bg-brand-card border border-brand-border p-6 hover:border-brand-orange/60 transition-all flex flex-col justify-between group" data-title="HP EliteDesk 800 G4 Mini PC Intel i5-8500T 16GB RAM 256GB SSD Win11">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-2.5 py-1 rounded-md bg-brand-orange/10 text-brand-orange font-mono text-[11px] font-semibold">Grade A Mini PC</span>
+                                <span class="text-xs font-mono text-emerald-400 font-bold">$129.00</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-orange transition-colors mb-2">HP EliteDesk 800 G4 Mini</h3>
+                            <p class="text-xs text-slate-400 mb-4 line-clamp-2">Ultra-compact form factor featuring Intel 6-Core i5-8500T, 16GB RAM, 256GB NVMe, USB-C, Dual DisplayPort. Ideal home lab server or desktop.</p>
+                            
+                            <div class="space-y-1.5 text-xs text-slate-300 font-mono mb-6 bg-brand-dark/60 p-3 rounded-lg border border-brand-border">
+                                <div><span class="text-slate-500">Size:</span> 1.3 Litre Ultra Micro</div>
+                                <div><span class="text-slate-500">CPU:</span> Intel i5-8500T 6-Cores</div>
+                                <div><span class="text-slate-500">Power:</span> Includes HP AC Power Brick</div>
+                                <div><span class="text-slate-500">OS:</span> Windows 11 Pro Loaded</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-brand-border flex items-center gap-2">
+                            <button onclick="openModal('hp-mini')" class="flex-1 py-2.5 rounded-lg bg-brand-dark border border-brand-border hover:border-slate-500 text-xs font-semibold text-slate-200 hover:text-white transition-all text-center">
+                                View Full Specs
+                            </button>
+                            <a href="https://www.ebay.com" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-lg bg-gradient-to-r from-brand-orange to-brand-amber text-white text-xs font-bold hover:opacity-90 transition-opacity flex items-center gap-1.5">
+                                <span>eBay</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- REFURBISHMENT & QA TESTING WORKFLOW -->
+        <section id="process" class="py-20 border-t border-brand-border/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-cyan/10 text-brand-cyan font-mono text-xs font-semibold mb-3">
+                        THE PYRO STANDARD
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white">4-Step Refurbishing & QA Process</h2>
+                    <p class="mt-4 text-slate-400">Why buyers trust Pyro Electronics NJ over generic liquidators: every item undergoes hands-on restoration.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    
+                    <!-- Step 1 -->
+                    <div class="rounded-2xl bg-brand-card border border-brand-border p-6 relative hover:border-brand-orange transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-brand-orange/10 text-brand-orange flex items-center justify-center font-mono font-bold text-lg mb-6 border border-brand-orange/20">
+                            01
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Intake & Diagnostics</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Hardware is inspected for physical defects, POST verified, and drives are wiped using NIST 800-88 compliant multi-pass software.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="rounded-2xl bg-brand-card border border-brand-border p-6 relative hover:border-brand-cyan transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center font-mono font-bold text-lg mb-6 border border-brand-cyan/20">
+                            02
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Deep Clean & Thermal Service</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Compressed air dust extraction, ultrasonic chassis restoration, CPU heat sink repasting with Arctic MX-4 thermal compound.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="rounded-2xl bg-brand-card border border-brand-border p-6 relative hover:border-brand-amber transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-brand-amber/10 text-brand-amber flex items-center justify-center font-mono font-bold text-lg mb-6 border border-brand-amber/20">
+                            03
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Benchmarking & Stress Test</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">MemTest86 RAM validation, Prime95 CPU thermal stress testing, battery discharge testing for laptops, and port checks.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="rounded-2xl bg-brand-card border border-brand-border p-6 relative hover:border-emerald-400 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-mono font-bold text-lg mb-6 border border-emerald-500/20">
+                            04
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Anti-Static Pro Packing</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Items wrapped in ESD anti-static bags, heavy-duty custom foam insulation, double-walled boxes, and dispatched within 24 hours.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BULK SOURCING & ITAD LIQUIDATION SECTION -->
+        <section id="sourcing" class="py-20 border-t border-brand-border/60 bg-brand-card/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-amber/10 text-brand-amber font-mono text-xs font-semibold mb-3">
+                            BULK BUYING & ITAD LIQUIDATION
+                        </div>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Liquidating Excess IT Equipment?</h2>
+                        <p class="mt-4 text-slate-300 leading-relaxed">
+                            We buy surplus hardware, off-lease corporate laptops, enterprise rack servers, school district PC fleets, and bulk electronic components across New Jersey and the tri-state area.
+                        </p>
+
+                        <div class="mt-8 space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded bg-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-truck-ramp-box text-xs"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white">Local Pickup & Freight Options</h4>
+                                    <p class="text-xs text-slate-400">On-site pallet pick-up across NJ, NY, and PA with fast cash or ACH payout.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded bg-brand-cyan/20 text-brand-cyan flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-hard-drive text-xs"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white">Data Destruction Guarantee</h4>
+                                    <p class="text-xs text-slate-400">Certificates of data wipe available upon request for corporate compliance.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-boxes-stacked text-xs"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white">All Hardware Conditions Accepted</h4>
+                                    <p class="text-xs text-slate-400">From working overstock to lot-as-is untested gear for component salvage.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Trade-In / Valuation Calculator Box -->
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-8 relative">
+                        <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-calculator text-brand-orange"></i>
+                            <span>Quick Bulk Lot Valuation Estimate</span>
+                        </h3>
+                        <p class="text-xs text-slate-400 mb-6">Select your inventory type and quantity to estimate immediate buyout interest.</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-mono text-slate-300 mb-1">EQUIPMENT CATEGORY</label>
+                                <select id="calc-category" class="w-full bg-brand-dark border border-brand-border rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-brand-orange">
+                                    <option value="laptops">Corporate Off-Lease Laptops (Dell/Lenovo/HP)</option>
+                                    <option value="sff">Small Form Factor Desktop PCs</option>
+                                    <option value="servers">Enterprise Rack Servers (Dell PowerEdge / HP ProLiant)</option>
+                                    <option value="ram">Server Memory / RAM (DDR4 / DDR3 ECC)</option>
+                                    <option value="mixed">Mixed E-Waste / Vintage Computer Lots</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-mono text-slate-300 mb-1">ESTIMATED QUANTITY (UNITS)</label>
+                                <input type="number" id="calc-qty" min="1" value="25" class="w-full bg-brand-dark border border-brand-border rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-brand-orange">
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-brand-dark border border-brand-border text-center">
+                                <span class="text-xs text-slate-400 block mb-1">Estimated Direct Cash Offer Range</span>
+                                <span id="calc-result" class="text-2xl font-extrabold font-mono text-emerald-400">$1,250 - $2,500+</span>
+                                <span class="text-[10px] text-slate-500 block mt-1">*Final quote depends on specs, CPU generation, and condition grade.</span>
+                            </div>
+
+                            <a href="#contact" class="block w-full py-3 rounded-xl bg-brand-orange hover:bg-orange-600 text-white font-bold text-center text-sm transition-colors">
+                                Submit Inventory List For Fast Offer
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EBAY CUSTOMER REVIEWS & FEEDBACK CAROUSEL -->
+        <section id="reviews" class="py-20 border-t border-brand-border/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-amber/10 text-brand-amber font-mono text-xs font-semibold mb-3">
+                        VERIFIED EBAY FEEDBACK
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white">What Our Buyers Say</h2>
+                    <p class="mt-4 text-slate-400">Real feedback from eBay customers who received our restored computers and components.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Review 1 -->
+                    <div class="bg-brand-card border border-brand-border p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-1 text-brand-amber text-sm mb-3">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-slate-300 text-sm italic mb-4">
+                                "The Dell OptiPlex arrived packed in custom foam like it came straight from the factory. Cleaned thermal paste, dust-free inside, and booted straight into activated Windows 11. Pyro Electronics is top notch!"
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between">
+                            <span class="text-xs font-semibold text-white">Buyer: m***8 (eBay)</span>
+                            <span class="text-[10px] font-mono text-slate-500">Verified Purchase</span>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-brand-card border border-brand-border p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-1 text-brand-amber text-sm mb-3">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-slate-300 text-sm italic mb-4">
+                                "Bought 128GB of DDR4 server RAM. Every single stick passed MemTest without a single bit error. Super fast shipping from NJ to CA in 2 days. Will buy again!"
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between">
+                            <span class="text-xs font-semibold text-white">Buyer: tech_sys_llc (eBay)</span>
+                            <span class="text-[10px] font-mono text-slate-500">Verified Purchase</span>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="bg-brand-card border border-brand-border p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-1 text-brand-amber text-sm mb-3">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-slate-300 text-sm italic mb-4">
+                                "Extremely accurate item description on my retro ThinkPad laptop. Battery holds great charge and screen was flawless. A true hardware enthusiast running this store!"
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between">
+                            <span class="text-xs font-semibold text-white">Buyer: retro_collector99</span>
+                            <span class="text-[10px] font-mono text-slate-500">Verified Purchase</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT & BULK INQUIRY FORM -->
+        <section id="contact" class="py-20 border-t border-brand-border/60 bg-brand-card/40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-orange/10 text-brand-orange font-mono text-xs font-semibold mb-3">
+                            DIRECT CONTACT & OFF-EBAY INQUIRIES
+                        </div>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Get in Touch</h2>
+                        <p class="mt-4 text-slate-400 leading-relaxed">
+                            Have questions about an active eBay item, custom desktop configurations, or bulk surplus hardware sales? Send us a message directly.
+                        </p>
+
+                        <div class="mt-8 space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-brand-card border border-brand-border flex items-center justify-center text-brand-orange shrink-0">
+                                    <i class="fa-solid fa-location-dot text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white">Facility Location</h4>
+                                    <p class="text-xs text-slate-400">Northern New Jersey, United States</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-brand-card border border-brand-border flex items-center justify-center text-brand-cyan shrink-0">
+                                    <i class="fa-solid fa-clock text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white">Dispatch Hours</h4>
+                                    <p class="text-xs text-slate-400">Monday - Friday: 8:00 AM - 6:00 PM EST</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-brand-card border border-brand-border flex items-center justify-center text-brand-amber shrink-0">
+                                    <i class="fa-solid fa-shield-halved text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white">Guaranteed Warranty</h4>
+                                    <p class="text-xs text-slate-400">30-Day Money Back Guarantee on all non-as-is items</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-8 relative">
+                        
+                        <!-- Success Overlay -->
+                        <div id="form-success" class="hidden absolute inset-0 bg-brand-card/95 rounded-2xl flex flex-col items-center justify-center text-center p-6 z-20">
+                            <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-3xl mb-4">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+                            <p class="text-slate-400 text-sm max-w-md">Thank you for reaching out to Pyro Electronics NJ. We will respond to your hardware inquiry within 24 business hours.</p>
+                            <button id="reset-form-btn" class="mt-6 px-6 py-2.5 rounded-lg bg-brand-border text-white text-sm hover:bg-slate-700 transition-colors">
+                                Send Another Message
+                            </button>
+                        </div>
+
+                        <form id="contact-form" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-mono text-slate-300 mb-1">YOUR NAME *</label>
+                                    <input type="text" required placeholder="John Doe" class="w-full bg-brand-dark border border-brand-border rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-orange">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-mono text-slate-300 mb-1">EMAIL ADDRESS *</label>
+                                    <input type="email" required placeholder="john@example.com" class="w-full bg-brand-dark border border-brand-border rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-orange">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-mono text-slate-300 mb-1">INQUIRY SUBJECT</label>
+                                <select class="w-full bg-brand-dark border border-brand-border rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-orange">
+                                    <option>Question About Active eBay Listing</option>
+                                    <option>Selling Surplus Hardware / ITAD Lot</option>
+                                    <option>Bulk Component / Wholesale Order</option>
+                                    <option>Custom PC / Server Request</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-mono text-slate-300 mb-1">MESSAGE / HARDWARE DETAILS *</label>
+                                <textarea rows="4" required placeholder="Include item titles, part numbers, or bulk inventory quantities..." class="w-full bg-brand-dark border border-brand-border rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-brand-orange"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-orange to-brand-amber text-white font-bold text-sm shadow-lg shadow-brand-orange/25 hover:shadow-brand-orange/40 transition-all flex items-center justify-center gap-2">
+                                <span>Send Message</span>
+                                <i class="fa-solid fa-paper-plane text-xs"></i>
+                            </button>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark border-t border-brand-border py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-brand-orange text-white flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-fire-flame-curved text-sm"></i>
+                </div>
+                <span class="font-bold text-white text-sm">PYRO ELECTRONICS NJ</span>
+            </div>
+            <p class="text-xs text-slate-500">© 2026 Pyro Electronics NJ. Top-Rated Independent Refurbisher & Reseller.</p>
+        </div>
+    </footer>
+
+    <!-- ITEM DETAIL MODAL -->
+    <div id="item-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="bg-brand-card border border-brand-border rounded-2xl max-w-2xl w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modal-content">
+                <!-- Dynamically filled by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Modal Data Store
+        const modalData = {
+            'dell-7070': {
+                title: 'Dell OptiPlex 7070 SFF PC',
+                price: '$189.99',
+                grade: 'Grade A Refurbished',
+                specs: [
+                    'Processor: Intel Core i7-9700 (8 Cores, Up to 4.70 GHz)',
+                    'RAM: 16GB DDR4 2666MHz (Expandable to 64GB)',
+                    'Storage: 512GB M.2 PCIe NVMe Solid State Drive',
+                    'Graphics: Intel UHD Graphics 630 (Dual DisplayPort)',
+                    'Operating System: Windows 11 Professional (Digital License)',
+                    'Refurbishing Service: Complete interior dust clearance, new thermal paste applied to CPU heatsink, bios flashed to latest release, full benchmark stress test passed.'
+                ]
+            },
+            'thinkpad-t480s': {
+                title: 'Lenovo ThinkPad T480s 14" Laptop',
+                price: '$164.50',
+                grade: 'Grade A- Refurbished',
+                specs: [
+                    'Processor: Intel Core i5-8350U Quad-Core',
+                    'Display: 14.0" Full HD (1920x1080) Anti-Glare IPS',
+                    'RAM: 16GB DDR4 Memory',
+                    'Storage: 256GB NVMe M.2 SSD',
+                    'Battery: Dual battery system tested at over 85% original design capacity.',
+                    'Includes: Genuine Lenovo 65W USB-C AC Power Adapter'
+                ]
+            },
+            'hp-dl380': {
+                title: 'HP ProLiant DL380 Gen10 2U Rack Server',
+                price: '$749.00',
+                grade: 'Tested Enterprise Grade',
+                specs: [
+                    'Processors: 2x Intel Xeon Silver 4110 (16 Cores / 32 Threads combined)',
+                    'Memory: 256GB DDR4 ECC Registered RAM (8x 32GB sticks)',
+                    'RAID Controller: HP Smart Array P408i-a SR Gen10 2GB Flash-Backed Cache',
+                    'Networking: FlexibleLOM 4x 1GbE Ports',
+                    'Power Supply: 2x 800W Flex Slot Platinum Hot Plug',
+                    'Management: iLO 5 Advanced License unlocked.'
+                ]
+            },
+            'ram-64gb': {
+                title: 'SK Hynix 64GB DDR4-3200 Registered ECC Server RAM',
+                price: '$68.00 / stick',
+                grade: 'MemTest86 Passed',
+                specs: [
+                    'Capacity: 64GB (Single Module)',
+                    'Speed: DDR4-3200MHz (PC4-25600R)',
+                    'Type: 2Rx4 RDIMM Registered ECC',
+                    'Voltage: 1.2V',
+                    'Testing Protocol: Cold boot POST check followed by 4 complete passes on MemTest86 with zero errors recorded.'
+                ]
+            },
+            'ibm-t42': {
+                title: 'Vintage IBM ThinkPad T42 Retro Gaming Laptop',
+                price: '$145.00',
+                grade: 'Restored Vintage',
+                specs: [
+                    'Processor: Intel Pentium M 1.7GHz',
+                    'Graphics: Dedicated ATI Mobility Radeon 9600 (32MB)',
+                    'RAM: 2GB PC2700 DDR',
+                    'Storage: 80GB IDE Hard Drive with Windows XP SP3 clean installation',
+                    'Optical Drive: DVD-RW Ultrabay drive',
+                    'Notes: Fully restored BIOS, CMOS battery replaced, hinges firm.'
+                ]
+            },
+            'hp-mini': {
+                title: 'HP EliteDesk 800 G4 Mini PC',
+                price: '$129.00',
+                grade: 'Grade A Refurbished',
+                specs: [
+                    'Processor: Intel 6-Core i5-8500T (Up to 3.50 GHz)',
+                    'RAM: 16GB DDR4 SO-DIMM',
+                    'Storage: 256GB M.2 NVMe SSD + open 2.5" bay',
+                    'Video Ports: 2x DisplayPort 1.2 + 1x USB-C',
+                    'Power Supply: Includes original HP 65W adapter.'
+                ]
+            }
+        };
+
+        // Open Modal Function
+        function openModal(key) {
+            const data = modalData[key];
+            if (!data) return;
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div class="inline-block px-3 py-1 rounded bg-brand-orange/10 text-brand-orange text-xs font-mono font-bold mb-3">${data.grade}</div>
+                <h3 class="text-2xl font-bold text-white mb-2">${data.title}</h3>
+                <div class="text-xl font-mono text-emerald-400 font-bold mb-4">${data.price}</div>
+                <div class="space-y-2 text-xs font-mono text-slate-300 bg-brand-dark p-4 rounded-xl border border-brand-border mb-6">
+                    ${data.specs.map(spec => `<div class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-orange mt-0.5"></i> <span>${spec}</span></div>`).join('')}
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="https://www.ebay.com" target="_blank" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-brand-orange to-brand-amber text-white text-center font-bold text-sm shadow-lg shadow-brand-orange/20 hover:opacity-90 transition-opacity">
+                        View Live Item on eBay Store &rarr;
+                    </a>
+                </div>
+            `;
+            document.getElementById('item-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('item-modal').classList.add('hidden');
+        }
+
+        // DOM Ready Initializer
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Mobile menu toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Inventory Filter Buttons
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const inventoryCards = document.querySelectorAll('.inventory-card');
+            const visibleCountEl = document.getElementById('visible-count');
+
+            function updateCount() {
+                let count = 0;
+                inventoryCards.forEach(card => {
+                    if (card.style.display !== 'none') count++;
+                });
+                visibleCountEl.textContent = count;
+            }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-brand-orange', 'text-white');
+                        b.classList.add('bg-brand-card', 'text-slate-300');
+                    });
+                    btn.classList.add('active', 'bg-brand-orange', 'text-white');
+
+                    const filter = btn.getAttribute('data-filter');
+                    inventoryCards.forEach(card => {
+                        if (filter === 'all' || card.classList.contains(filter)) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    updateCount();
+                });
+            });
+
+            // Search Bar Filter
+            const searchInput = document.getElementById('inventory-search');
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                inventoryCards.forEach(card => {
+                    const title = card.getAttribute('data-title').toLowerCase();
+                    if (title.includes(term)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                updateCount();
+            });
+
+            // Calculator logic
+            const calcCategory = document.getElementById('calc-category');
+            const calcQty = document.getElementById('calc-qty');
+            const calcResult = document.getElementById('calc-result');
+
+            function updateCalc() {
+                const qty = parseInt(calcQty.value) || 1;
+                const cat = calcCategory.value;
+                let min = 10;
+                let max = 50;
+
+                if (cat === 'laptops') { min = 50; max = 110; }
+                else if (cat === 'sff') { min = 35; max = 80; }
+                else if (cat === 'servers') { min = 150; max = 400; }
+                else if (cat === 'ram') { min = 12; max = 35; }
+                else if (cat === 'mixed') { min = 5; max = 20; }
+
+                const lowTotal = (qty * min).toLocaleString();
+                const highTotal = (qty * max).toLocaleString();
+                calcResult.textContent = `$${lowTotal} - $${highTotal}+`;
+            }
+
+            calcCategory.addEventListener('change', updateCalc);
+            calcQty.addEventListener('input', updateCalc);
+
+            // Form Submit Logic
+            const contactForm = document.getElementById('contact-form');
+            const formSuccess = document.getElementById('form-success');
+            const resetFormBtn = document.getElementById('reset-form-btn');
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                formSuccess.classList.remove('hidden');
+                contactForm.reset();
+            });
+
+            resetFormBtn.addEventListener('click', () => {
+                formSuccess.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
