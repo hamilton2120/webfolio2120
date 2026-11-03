@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyro Electronics NJ | ITAD & Secondary Market Hardware</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Configuration for custom colors and theme -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        pyro: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                        },
+                        cyanAccent: {
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                        },
+                        darkSlate: {
+                            800: '#0f172a',
+                            900: '#020617',
+                            950: '#010409',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom subtle glassmorphism */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card-hover:hover {
+            border-color: rgba(249, 115, 22, 0.4);
+            box-shadow: 0 0 25px -5px rgba(249, 115, 22, 0.15);
+        }
+        /* Gradient text effect */
+        .text-gradient {
+            background: linear-gradient(135deg, #f97316 0%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-pyro-500 selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-card bg-slate-900/80 border-b border-slate-800/80 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-pyro-500 to-cyanAccent-500 p-0.5 shadow-lg shadow-pyro-500/20 group-hover:shadow-pyro-500/40 transition-all">
+                        <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
+                            <i data-lucide="flame" class="w-6 h-6 text-pyro-500 group-hover:scale-110 transition-transform"></i>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1">
+                            PYRO <span class="text-pyro-500 font-semibold text-sm tracking-normal">ELECTRONICS</span>
+                        </span>
+                        <span class="text-[10px] font-medium text-cyanAccent-400 tracking-widest uppercase">New Jersey</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                    <a href="#services" class="hover:text-pyro-500 transition-colors">Services</a>
+                    <a href="#store" class="hover:text-pyro-500 transition-colors">Inventory</a>
+                    <a href="#about" class="hover:text-pyro-500 transition-colors">Quality Assurance</a>
+                    <a href="#contact" class="hover:text-pyro-500 transition-colors">Contact</a>
+                </nav>
+
+                <!-- Action Buttons -->
+                <div class="hidden sm:flex items-center gap-4">
+                    <a href="tel:973-349-0433" class="flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white bg-slate-800/80 px-3.5 py-2 rounded-lg border border-slate-700 transition-all hover:border-slate-600">
+                        <i data-lucide="phone" class="w-3.5 h-3.5 text-cyanAccent-400"></i>
+                        <span>973-349-0433</span>
+                    </a>
+                    <a href="https://www.ebay.com/str/pyroelectronicsnj" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-semibold text-slate-950 bg-gradient-to-r from-pyro-500 to-amber-500 hover:from-pyro-600 hover:to-amber-600 px-4 py-2 rounded-lg transition-all shadow-md shadow-pyro-500/20 hover:scale-[1.02]">
+                        <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                        <span>eBay Store</span>
+                        <i data-lucide="external-link" class="w-3 h-3 opacity-70"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white focus:outline-none">
+                    <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+                    <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-slate-950/95 backdrop-blur-lg px-4 pt-3 pb-6 space-y-3">
+            <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Services</a>
+            <a href="#store" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Inventory</a>
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Quality Assurance</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Contact Us</a>
+            <div class="pt-4 border-t border-slate-800 flex flex-col gap-3">
+                <a href="tel:973-349-0433" class="flex items-center justify-center gap-2 text-sm font-semibold text-slate-200 bg-slate-800 py-2.5 rounded-lg border border-slate-700">
+                    <i data-lucide="phone" class="w-4 h-4 text-cyanAccent-400"></i>
+                    <span>Call: 973-349-0433</span>
+                </a>
+                <a href="https://www.ebay.com/str/pyroelectronicsnj" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 text-sm font-semibold text-slate-950 bg-gradient-to-r from-pyro-500 to-amber-500 py-2.5 rounded-lg">
+                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                    <span>Visit eBay Store</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5 opacity-70"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow pt-20">
+
+        <!-- Hero Section -->
+        <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20">
+            <!-- Background Glows & Grid -->
+            <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pyro-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-80 h-80 bg-cyanAccent-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+                <!-- Location Badge -->
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 mb-6 text-xs sm:text-sm text-slate-300 shadow-xl">
+                    <span class="w-2 h-2 rounded-full bg-pyro-500 animate-pulse"></span>
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-pyro-500"></i>
+                    <span>Based in New Jersey &bull; Serving Nationwide IT Needs</span>
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight sm:leading-none mb-6">
+                    Maximizing Value in <span class="text-gradient">IT Asset Disposition</span> & Refurbished Hardware
+                </h1>
+
+                <!-- Subtitle / Summary -->
+                <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
+                    Pyro Electronics NJ delivers premier ITAD solutions, rigorous hardware testing, enterprise component refurbishing, and direct secondary market sales.
+                </p>
+
+                <!-- Call To Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-16">
+                    <a href="https://www.ebay.com/str/pyroelectronicsnj" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-pyro-500 via-amber-500 to-pyro-500 bg-[length:200%_auto] hover:bg-right transition-all duration-300 shadow-lg shadow-pyro-500/25 group text-base">
+                        <i data-lucide="shopping-cart" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                        <span>Shop eBay Store</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+
+                    <a href="#contact" class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-slate-200 bg-slate-900 hover:bg-slate-800 border border-slate-700/80 transition-all text-base hover:border-slate-500">
+                        <i data-lucide="mail" class="w-5 h-5 text-cyanAccent-400"></i>
+                        <span>Contact ITAD Team</span>
+                    </a>
+                </div>
+
+                <!-- Key Metrics / Highlights -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto pt-8 border-t border-slate-800/80">
+                    <div class="p-4 rounded-xl glass-card text-left">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-pyro-500 mb-1">100%</div>
+                        <div class="text-xs sm:text-sm text-slate-400 font-medium">Tested & Verified</div>
+                    </div>
+                    <div class="p-4 rounded-xl glass-card text-left">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-cyanAccent-400 mb-1">Enterprise</div>
+                        <div class="text-xs sm:text-sm text-slate-400 font-medium">Laptops, CPUs & RAM</div>
+                    </div>
+                    <div class="p-4 rounded-xl glass-card text-left">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-pyro-500 mb-1">Sustainable</div>
+                        <div class="text-xs sm:text-sm text-slate-400 font-medium">E-Waste Solutions</div>
+                    </div>
+                    <div class="p-4 rounded-xl glass-card text-left">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-cyanAccent-400 mb-1">Top-Rated</div>
+                        <div class="text-xs sm:text-sm text-slate-400 font-medium">eBay Marketplace Seller</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Services Section -->
+        <section id="services" class="py-24 bg-slate-900/50 border-y border-slate-800/80 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold text-cyanAccent-400 uppercase tracking-widest mb-3">Our Core Capabilities</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Full Lifecycle Electronics Management</p>
+                    <p class="mt-4 text-slate-400 text-base sm:text-lg">From enterprise decommission to component resale, we offer tailored end-to-end hardware solutions.</p>
+                </div>
+
+                <!-- Services Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Service 1 -->
+                    <div class="glass-card glass-card-hover p-6 rounded-2xl transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-pyro-500/10 border border-pyro-500/20 flex items-center justify-center text-pyro-500 mb-6 group-hover:bg-pyro-500 group-hover:text-slate-950 transition-all">
+                                <i data-lucide="server" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">IT Asset Disposition (ITAD)</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                Streamlined liquidation and disposition of retired corporate hardware, off-lease servers, and enterprise infrastructure.
+                            </p>
+                        </div>
+                        <ul class="text-xs text-slate-300 space-y-2 pt-4 border-t border-slate-800">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pyro-500"></i> Corporate Off-Lease Recovery</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pyro-500"></i> Secure Handling Protocols</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="glass-card glass-card-hover p-6 rounded-2xl transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-cyanAccent-500/10 border border-cyanAccent-500/20 flex items-center justify-center text-cyanAccent-400 mb-6 group-hover:bg-cyanAccent-400 group-hover:text-slate-950 transition-all">
+                                <i data-lucide="cpu" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Testing & Grading</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                In-depth bench testing for CPUs, RAM, storage, motherboards, and systems with meticulous cosmetic and functional grading.
+                            </p>
+                        </div>
+                        <ul class="text-xs text-slate-300 space-y-2 pt-4 border-t border-slate-800">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyanAccent-400"></i> Stress & Diagnostic Benchmarks</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyanAccent-400"></i> Detailed Grade Reporting</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="glass-card glass-card-hover p-6 rounded-2xl transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-pyro-500/10 border border-pyro-500/20 flex items-center justify-center text-pyro-500 mb-6 group-hover:bg-pyro-500 group-hover:text-slate-950 transition-all">
+                                <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Refurbishing & Resale</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                Extending the lifecycle of pre-owned tech. We clean, restore, upgrade, and list ready-to-use devices for secondary markets.
+                            </p>
+                        </div>
+                        <ul class="text-xs text-slate-300 space-y-2 pt-4 border-t border-slate-800">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pyro-500"></i> OEM Component Replacement</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pyro-500"></i> Direct-to-Consumer Market</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="glass-card glass-card-hover p-6 rounded-2xl transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-cyanAccent-500/10 border border-cyanAccent-500/20 flex items-center justify-center text-cyanAccent-400 mb-6 group-hover:bg-cyanAccent-400 group-hover:text-slate-950 transition-all">
+                                <i data-lucide="boxes" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Bulk Sourcing & Wholesale</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                Reliable bulk supply solutions for repair technicians, system integrators, and resellers looking for tested component lots.
+                            </p>
+                        </div>
+                        <ul class="text-xs text-slate-300 space-y-2 pt-4 border-t border-slate-800">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyanAccent-400"></i> Bulk Lot Availability</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyanAccent-400"></i> Flexible B2B Purchasing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Inventory / Store Highlight Section -->
+        <section id="store" class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <h2 class="text-xs font-bold text-pyro-500 uppercase tracking-widest mb-3">Direct Marketplace Access</h2>
+                        <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Featured Hardware & Inventory</p>
+                        <p class="text-slate-400 text-base mt-2">Explore sample hardware inventory available through our official eBay outlet.</p>
+                    </div>
+
+                    <!-- Filter / Action Link -->
+                    <div class="mt-6 md:mt-0">
+                        <a href="https://www.ebay.com/str/pyroelectronicsnj" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-pyro-500 hover:text-pyro-400 transition-colors">
+                            <span>Browse All Store Items</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
+                    <!-- Dynamic Items injected by JavaScript or fallback rendered -->
+                    
+                    <!-- Product 1 -->
+                    <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 flex flex-col group hover:border-pyro-500/40 transition-all duration-300">
+                        <div class="relative bg-slate-900 p-6 flex items-center justify-center h-48 border-b border-slate-800/80">
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-pyro-500/20 text-pyro-500 border border-pyro-500/30">Refurbished</span>
+                            <i data-lucide="laptop" class="w-20 h-20 text-slate-700 group-hover:text-pyro-500/80 group-hover:scale-110 transition-all duration-300"></i>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <span class="text-xs text-slate-400 font-medium">Enterprise Laptops</span>
+                                <h3 class="text-lg font-bold text-white mt-1 mb-2 group-hover:text-pyro-500 transition-colors">Off-Lease Business Laptops</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                                    Fully sanitized, diagnostic-tested laptops equipped with modern SSDs and pristine operating systems.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                                <span class="text-xs font-semibold text-cyanAccent-400">Tested & Ready</span>
+                                <a href="https://www.ebay.com/str/pyroelectronicsnj" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-950 bg-pyro-500 hover:bg-pyro-600 transition-colors">
+                                    <span>View Listing</span>
+                                    <i data-lucide="external-link" class="w-3 h-3"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 flex flex-col group hover:border-cyanAccent-400/40 transition-all duration-300">
+                        <div class="relative bg-slate-900 p-6 flex items-center justify-center h-48 border-b border-slate-800/80">
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-cyanAccent-500/20 text-cyanAccent-400 border border-cyanAccent-500/30">Tested Grade A</span>
+                            <i data-lucide="cpu" class="w-20 h-20 text-slate-700 group-hover:text-cyanAccent-400/80 group-hover:scale-110 transition-all duration-300"></i>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <span class="text-xs text-slate-400 font-medium">Processors & CPUs</span>
+                                <h3 class="text-lg font-bold text-white mt-1 mb-2 group-hover:text-cyanAccent-400 transition-colors">Server & Desktop Processors</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                                    Benchmarked Intel Xeon, Core i-Series, and AMD Ryzen processors with clean contact pads.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                                <span class="text-xs font-semibold text-cyanAccent-400">Passed Stress Test</span>
+                                <a href="https://www.ebay.com/str/pyroelectronicsnj" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-950 bg-cyanAccent-400 hover:bg-cyanAccent-500 transition-colors">
+                                    <span>View Listing</span>
+                                    <i data-lucide="external-link" class="w-3 h-3"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 flex flex-col group hover:border-pyro-500/40 transition-all duration-300">
+                        <div class="relative bg-slate-900 p-6 flex items-center justify-center h-48 border-b border-slate-800/80">
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-pyro-500/20 text-pyro-500 border border-pyro-500/30">Bulk Lots</span>
+                            <i data-lucide="memory-stick" class="w-20 h-20 text-slate-700 group-hover:text-pyro-500/80 group-hover:scale-110 transition-all duration-300"></i>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between">
+                            <div>
+                                <span class="text-xs text-slate-400 font-medium">System RAM</span>
+                                <h3 class="text-lg font-bold text-white mt-1 mb-2 group-hover:text-pyro-500 transition-colors">DDR4 / DDR5 Memory Kits</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                                    ECC Server memory and high-performance desktop memory modulesMemTest verified.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                                <span class="text-xs font-semibold text-cyanAccent-400">Zero Error Tested</span>
+                                <a href="https://www.ebay.com/str/pyroelectronicsnj" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-950 bg-pyro-500 hover:bg-pyro-600 transition-colors">
+                                    <span>View Listing</span>
+                                    <i data-lucide="external-link" class="w-3 h-3"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Callout Banner for eBay Store -->
+                <div class="mt-12 p-8 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border border-slate-700 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-pyro-500/20 flex items-center justify-center text-pyro-500 shrink-0 hidden sm:flex">
+                            <i data-lucide="store" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-white">Looking for custom parts or specific quantities?</h4>
+                            <p class="text-sm text-slate-400 mt-1">Visit our active eBay store to view real-time inventory, current bids, and buy-it-now deals.</p>
+                        </div>
+                    </div>
+                    <a href="https://www.ebay.com/str/pyroelectronicsnj" target="_blank" rel="noopener noreferrer" class="shrink-0 px-6 py-3 rounded-xl font-bold text-slate-950 bg-pyro-500 hover:bg-pyro-600 transition-all flex items-center gap-2">
+                        <span>Visit Pyro Store</span>
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quality Assurance & Sustainability Section -->
+        <section id="about" class="py-24 bg-slate-900/40 border-t border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    
+                    <!-- Left: Text Content -->
+                    <div>
+                        <h2 class="text-xs font-bold text-cyanAccent-400 uppercase tracking-widest mb-3">Commitment to Excellence</h2>
+                        <h3 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-6">Rigorous QA Testing & Responsible E-Waste Practices</h3>
+                        
+                        <p class="text-slate-300 text-base leading-relaxed mb-6">
+                            At <span class="text-white font-semibold">Pyro Electronics NJ</span>, we bridge the gap between corporate IT retirement and sustainable hardware reuse. Every piece of equipment that enters our facility undergoes thorough functional testing and quality inspection before reaching the secondary market.
+                        </p>
+
+                        <!-- Highlights list -->
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-pyro-500/20 text-pyro-500 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Multi-Stage Diagnostic Verification</h4>
+                                    <p class="text-xs text-slate-400 mt-0.5">Hardware undergoes component stress-testing, BIOS checks, and memory diagnostic loops.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-cyanAccent-500/20 text-cyanAccent-400 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="leaf" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Sustainable Circular Economy</h4>
+                                    <p class="text-xs text-slate-400 mt-0.5">Extending the lifespan of technology directly reduces e-waste and lowers carbon footprints.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-pyro-500/20 text-pyro-500 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="truck" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Secure ESD Packaging & Fast Shipping</h4>
+                                    <p class="text-xs text-slate-400 mt-0.5">Components are safely packaged in anti-static materials and shipped with prompt delivery tracking.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Visual Cards / QA Workflow -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-6 rounded-2xl glass-card border border-slate-800">
+                            <div class="text-3xl font-bold text-pyro-500 mb-2">01</div>
+                            <h4 class="text-base font-bold text-white mb-1">Intake & Audit</h4>
+                            <p class="text-xs text-slate-400">Detailed logging of serial numbers, specifications, and physical condition upon receipt.</p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl glass-card border border-slate-800">
+                            <div class="text-3xl font-bold text-cyanAccent-400 mb-2">02</div>
+                            <h4 class="text-base font-bold text-white mb-1">Bench Testing</h4>
+                            <p class="text-xs text-slate-400">Deep hardware testing to isolate fault-free components and ensure top stability.</p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl glass-card border border-slate-800">
+                            <div class="text-3xl font-bold text-cyanAccent-400 mb-2">03</div>
+                            <h4 class="text-base font-bold text-white mb-1">Refurbishing</h4>
+                            <p class="text-xs text-slate-400">Precision cleaning, thermal compound replacement, and necessary repairs.</p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl glass-card border border-slate-800">
+                            <div class="text-3xl font-bold text-pyro-500 mb-2">04</div>
+                            <h4 class="text-base font-bold text-white mb-1">Final Dispatch</h4>
+                            <p class="text-xs text-slate-400">Secure listing, protective packaging, and direct order fulfillment to buyers.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Left: Contact Details -->
+                    <div class="lg:col-span-5 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-xs font-bold text-pyro-500 uppercase tracking-widest mb-3">Get In Touch</h2>
+                            <h3 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-6">Partner with Pyro Electronics NJ</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-8">
+                                Have IT equipment to liquidate? Need a quote for bulk purchasing? Reach out to our team in New Jersey today for quick response times and honest evaluation.
+                            </p>
+
+                            <div class="space-y-6">
+                                <!-- Phone -->
+                                <a href="tel:973-349-0433" class="flex items-center gap-4 p-4 rounded-xl glass-card hover:border-pyro-500/50 transition-all group">
+                                    <div class="w-12 h-12 rounded-lg bg-pyro-500/10 border border-pyro-500/20 flex items-center justify-center text-pyro-500 group-hover:bg-pyro-500 group-hover:text-slate-950 transition-all">
+                                        <i data-lucide="phone-call" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-slate-400 font-medium">Direct Phone Line</div>
+                                        <div class="text-lg font-bold text-white group-hover:text-pyro-500 transition-colors">973-349-0433</div>
+                                    </div>
+                                </a>
+
+                                <!-- Location -->
+                                <div class="flex items-center gap-4 p-4 rounded-xl glass-card">
+                                    <div class="w-12 h-12 rounded-lg bg-cyanAccent-500/10 border border-cyanAccent-500/20 flex items-center justify-center text-cyanAccent-400">
+                                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-slate-400 font-medium">Location</div>
+                                        <div class="text-base font-bold text-white">New Jersey, USA</div>
+                                    </div>
+                                </div>
+
+                                <!-- eBay Store Direct -->
+                                <a href="https://www.ebay.com/str/pyroelectronicsnj" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 rounded-xl glass-card hover:border-cyanAccent-400/50 transition-all group">
+                                    <div class="w-12 h-12 rounded-lg bg-cyanAccent-500/10 border border-cyanAccent-500/20 flex items-center justify-center text-cyanAccent-400 group-hover:bg-cyanAccent-400 group-hover:text-slate-950 transition-all">
+                                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-slate-400 font-medium">Official eBay Outlet</div>
+                                        <div class="text-base font-bold text-white group-hover:text-cyanAccent-400 transition-colors flex items-center gap-1">
+                                            <span>pyroelectronicsnj</span>
+                                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Badge -->
+                        <div class="mt-8 p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400">
+                            <span class="text-white font-semibold">Fast Response Guarantee:</span> Inquiries regarding ITAD inventory lots receive attention within 24 business hours.
+                        </div>
+                    </div>
+
+                    <!-- Right: Form -->
+                    <div class="lg:col-span-7">
+                        <div class="glass-card p-8 rounded-2xl border border-slate-800 relative">
+                            <h4 class="text-xl font-bold text-white mb-2">Send Us an Inquiry</h4>
+                            <p class="text-xs text-slate-400 mb-6">Fill out the form below for ITAD quotes, wholesale requests, or inventory questions.</p>
+
+                            <!-- Alert Box Container -->
+                            <div id="form-alert" class="hidden mb-6 p-4 rounded-xl text-sm border"></div>
+
+                            <form id="contact-form" class="space-y-5">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                    <div>
+                                        <label for="name" class="block text-xs font-medium text-slate-300 mb-2">Your Name *</label>
+                                        <input type="text" id="name" required class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-pyro-500 focus:ring-1 focus:ring-pyro-500 transition-colors" placeholder="John Doe">
+                                    </div>
+                                    <div>
+                                        <label for="email" class="block text-xs font-medium text-slate-300 mb-2">Email Address *</label>
+                                        <input type="email" id="email" required class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-pyro-500 focus:ring-1 focus:ring-pyro-500 transition-colors" placeholder="john@company.com">
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                    <div>
+                                        <label for="phone" class="block text-xs font-medium text-slate-300 mb-2">Phone Number</label>
+                                        <input type="tel" id="phone" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-pyro-500 focus:ring-1 focus:ring-pyro-500 transition-colors" placeholder="973-000-0000">
+                                    </div>
+                                    <div>
+                                        <label for="service-type" class="block text-xs font-medium text-slate-300 mb-2">Inquiry Type</label>
+                                        <select id="service-type" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-pyro-500 focus:ring-1 focus:ring-pyro-500 transition-colors">
+                                            <option value="itad">ITAD / Equipment Disposition</option>
+                                            <option value="wholesale">Bulk Sourcing & Buying</option>
+                                            <option value="inventory">eBay Store Inquiry</option>
+                                            <option value="general">General Question</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="message" class="block text-xs font-medium text-slate-300 mb-2">Message or Equipment List *</label>
+                                    <textarea id="message" rows="4" required class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-pyro-500 focus:ring-1 focus:ring-pyro-500 transition-colors resize-none" placeholder="Please describe your hardware disposition needs or specific inventory requested..."></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full py-4 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-pyro-500 to-amber-500 hover:from-pyro-600 hover:to-amber-600 transition-all flex items-center justify-center gap-2 shadow-lg shadow-pyro-500/20">
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                    <span>Send Message</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800/80 py-12 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <!-- Brand Info -->
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-pyro-500/20 border border-pyro-500/30 flex items-center justify-center text-pyro-500">
+                        <i data-lucide="flame" class="w-4 h-4"></i>
+                    </div>
+                    <span class="font-bold text-white text-base">Pyro Electronics NJ</span>
+                </div>
+
+                <!-- Footer Navigation -->
+                <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
+                    <a href="#services" class="hover:text-pyro-500 transition-colors">Services</a>
+                    <a href="#store" class="hover:text-pyro-500 transition-colors">eBay Store</a>
+                    <a href="#about" class="hover:text-pyro-500 transition-colors">Quality Assurance</a>
+                    <a href="#contact" class="hover:text-pyro-500 transition-colors">Contact</a>
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-xs text-slate-500 text-center md:text-right">
+                    &copy; <span id="year"></span> Pyro Electronics NJ. All rights reserved.<br>
+                    IT Asset Disposition & Hardware Refurbishing
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Icons, Mobile Menu, and Dynamic Interactions -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Set Dynamic Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIconOpen = document.getElementById('menu-icon-open');
+        const menuIconClose = document.getElementById('menu-icon-close');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuIconOpen.classList.add('hidden');
+                menuIconClose.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIconOpen.classList.remove('hidden');
+                menuIconClose.classList.add('hidden');
+            }
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIconOpen.classList.remove('hidden');
+                menuIconClose.classList.add('hidden');
+            });
+        });
+
+        // Contact Form Submission Handler (Mock implementation without alert())
+        const contactForm = document.getElementById('contact-form');
+        const formAlert = document.getElementById('form-alert');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            if (name && email) {
+                // Show success alert message
+                formAlert.className = "mb-6 p-4 rounded-xl text-sm border bg-emerald-950/80 border-emerald-500/50 text-emerald-300 flex items-center gap-3";
+                formAlert.innerHTML = `
+                    <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <div>
+                        <strong class="font-bold">Thank you, ${name}!</strong> Your message has been received. Our team will contact you shortly regarding your IT request.
+                    </div>
+                `;
+                
+                // Reset form
+                contactForm.reset();
+
+                // Auto-scroll slightly to show message
+                formAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        });
+    </script>
+</body>
+</html>
